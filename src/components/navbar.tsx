@@ -1,22 +1,24 @@
 import { Link } from 'gatsby';
 import React from 'react';
 
+import styles from './navbar.module.scss';
+
 interface Props {
-  siteTitle: string,
+  title: string,
 }
 
 const Nav: React.FC<Props> = (props): JSX.Element => {
-  const { siteTitle } = props;
+  const { title } = props;
 
   return (
     <nav>
-      <ul>
-        <li><Link to="/">{siteTitle}</Link></li>
-        <li><Link to="/about">About</Link></li>
-        <li><Link to="/blog">Blog</Link></li>
-        <li><Link to="/portfolio">Portfolio</Link></li>
-        <li><Link to="/contact">Contact</Link></li>
-        <li><Link to="/resume">Resume</Link></li>
+      <ul className={styles.navLinks}>
+        <li><Link className={styles.link} to="/">{title}</Link></li>
+        <li><Link className={styles.link} to="/about">About</Link></li>
+        <li><Link className={styles.link} to="/blog">Blog</Link></li>
+        <li><Link className={styles.link} to="/portfolio">Portfolio</Link></li>
+        <li><Link className={styles.link} to="/contact">Contact</Link></li>
+        <li><Link className={styles.link} to="/resume">Resume</Link></li>
       </ul>
     </nav>
   );

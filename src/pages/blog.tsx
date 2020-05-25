@@ -1,14 +1,14 @@
 import React from 'react';
 import { graphql, useStaticQuery, Link } from 'gatsby';
-// import { Button } from 'semantic-ui-react';
 
 import Layout from '../components/layout';
+import styles from './blog.module.scss';
 
 interface Edge {
   node: {
     excerpt: string,
     id: string,
-    frontmatter: {title: string, date: string},
+    frontmatter: {title: string, date: string, attachments: Array<string>},
     fields: {slug: string}
   }
 }
@@ -21,11 +21,12 @@ const Blog: React.FC = (): JSX.Element => {
       ) {
           edges {
             node {
-              excerpt(pruneLength: 250)
+              excerpt(pruneLength: 150)
               id
               frontmatter {
                 title
                 date(formatString: "MMMM DD, YYYY")
+                attachments
               }
               fields {
                 slug
@@ -38,12 +39,18 @@ const Blog: React.FC = (): JSX.Element => {
   const { allMarkdownRemark: { edges } } = data;
 
   const listPosts = edges.map((edge: Edge) => {
-    const { node: { id, frontmatter: { title, date }, fields: { slug } } } = edge;
+    const {
+      node: {
+        excerpt, id, frontmatter: { title, date, attachments }, fields: { slug },
+      },
+    } = edge;
     return (
       <li key={id}>
-        <Link to={`blog/${slug}`}>
-          <h1>{title}</h1>
+        <Link className={styles.link} to={`blog/${slug}`}>
+          <h3>{title}</h3>
           <p>{date}</p>
+          <p>{excerpt}</p>
+          {attachments[0] === '#' ? null : <img src={attachments[0]} alt="header" />}
         </Link>
       </li>
     );
@@ -51,7 +58,8 @@ const Blog: React.FC = (): JSX.Element => {
 
   return (
     <Layout>
-      <ul>
+      <h1>Blog posts</h1>
+      <ul className={styles.container}>
         {listPosts}
       </ul>
     </Layout>

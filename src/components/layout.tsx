@@ -4,6 +4,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Nav from './navbar';
 import Footer from './footer';
 import './layout.scss';
+import styles from './layout.module.scss';
 
 interface Props {
   children: unknown
@@ -15,20 +16,20 @@ const Layout: React.FC<Props> = (props) => {
     {
       site {
         siteMetadata {
-          title
           author
         }
       }
     }
   `);
 
+  const { site: { siteMetadata: { author } } } = data;
   return (
-    <div>
-      <Nav siteTitle={data.site.siteMetadata.title} />
-      <div>
+    <div className={styles.container}>
+      <Nav title="Home" />
+      <div className={styles.content}>
         <main>{children}</main>
       </div>
-      <Footer siteAuthor={data.site.siteMetadata.author} />
+      <Footer siteAuthor={author} />
     </div>
   );
 };

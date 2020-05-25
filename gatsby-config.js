@@ -13,13 +13,13 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'gatsby-starter-default',
-        short_name: 'starter',
+        name: 'Chibuzo Chiwike',
+        short_name: 'Chibuzo',
         start_url: '/',
-        background_color: '#663399',
-        theme_color: '#663399',
+        background_color: '#11219C',
+        theme_color: '#11219C',
         display: 'minimal-ui',
-        icon: 'static/gatsby-icon.png', // This path is relative to the root of the site.
+        icon: 'static/tech-circle.jpg', // This path is relative to the root of the site.
       },
     },
     {

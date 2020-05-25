@@ -1,0 +1,16 @@
+.navLinks {
+  border-bottom: 1px solid rgb(155, 155, 4);
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+}
+
+.link {
+  color: #000000;
+  margin-left: 10px;
+  margin-right: 10px;
+
+  &:hover {
+    opacity: 0.5;
+  }
+}

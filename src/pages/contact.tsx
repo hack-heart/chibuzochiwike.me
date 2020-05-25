@@ -7,6 +7,7 @@ const Contact: React.FC = (): JSX.Element => {
   return (
     <Layout>
       <form name="contact" method="POST" netlify-honeypot="bot-field" data-netlify="true" className={styles.container}>
+        <p>Let&apos;s stay in touch</p>
         <input type="hidden" name="bot-field" />
 
         <div className={styles.labelContainer}>
@@ -31,8 +32,10 @@ const Contact: React.FC = (): JSX.Element => {
 
         <div className={styles.messageContainer}>
           <label htmlFor="email">Message</label>
-          <input type="text" name="message" />
+          <textarea name="message" />
         </div>
+
+        <button type="submit">Send</button>
 
       </form>
     </Layout>

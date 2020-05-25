@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 
 import Layout from '../components/layout';
 
@@ -28,9 +28,10 @@ const Blog: React.FC<Props> = (props): JSX.Element => {
   const { data: { markdownRemark: { html, frontmatter: { title, date, attachments } } } } = props;
   return (
     <Layout>
+      <Link to="/blog">Back</Link>
       <h1>{title}</h1>
       <p>{date}</p>
-      <img src={attachments[0]} alt="header" />
+      {attachments[0] === '#' ? null : <img src={attachments[0]} alt="header" />}
       <div dangerouslySetInnerHTML={{ __html: html }} />
     </Layout>
   );

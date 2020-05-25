@@ -4,9 +4,8 @@ import Layout from '../components/layout';
 
 const IndexPage: React.FC = ():JSX.Element => (
   <Layout>
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
+    <h1>Hi there</h1>
+    <p>This site is under construction. I mean, you can poke around, it&apos;s just slightly empty.</p>
   </Layout>
 
 );

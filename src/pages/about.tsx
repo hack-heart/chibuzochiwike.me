@@ -14,10 +14,11 @@ const About: React.FC = (): JSX.Element => {
       }
     }
   `);
-  const { markdownRemark: { html } } = data;
+  const { markdownRemark: { html, frontmatter: { title } } } = data;
   return (
     <Layout>
       <div>
+        <h1>{title}</h1>
         <div dangerouslySetInnerHTML={{ __html: html }} />
       </div>
     </Layout>

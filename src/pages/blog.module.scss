@@ -1,0 +1,10 @@
+.container {
+  list-style-type: none;
+}
+.link {
+  color: #000000;
+
+  &:hover {
+    color: #4E022C;
+  }
+}

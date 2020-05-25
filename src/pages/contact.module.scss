@@ -13,8 +13,11 @@
   display: flex;
   flex-direction: column;
 
-  input {
-    height: 130px;
+  textarea {
+    height: 150px;
+    outline: none;
+    resize: none;
+    width: 350px;
   }
 }
 
@@ -23,5 +26,16 @@ input {
   margin: 2px;
   outline: none;
   padding: 3px;
-  width: 400px;
+  width: 350px;
+}
+
+button {
+  box-sizing: border-box;
+  cursor: pointer;
+  margin-top: 10px;
+  padding: 5px 15px;
+
+  &:hover {
+    opacity: 0.5;
+  }
 }
